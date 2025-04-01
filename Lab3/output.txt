@@ -1,0 +1,1 @@
+THE quick BROWN fox JUMPS over THE lazy DOG. This IS a SAMPLE text FOR processing. WE will CONVERT odd WORDS to UPPERCASE. 

@@ -1,0 +1,8 @@
+This is a Test line.
+Another Line with A and B.
+This line has no uppercase words.
+Uppercase A and Lowercase b.
+Start and End with A. 
+AB
+HellO
+Start and End with AB. 
