@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Портфолио студента</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="lab.html?lab=2">Лаб. работа 2</a></li>
+                <li><a href="lab.html?lab=3">Лаб. работа 3</a></li>
+                <li><a href="lab.html?lab=4">Лаб. работа 4</a></li>
+                <li><a href="lab.html?lab=5">Лаб. работа 5</a></li>
+                <li><a href="lab.html?lab=6">Лаб. работа 6</a></li>
+                <li><a href="lab.html?lab=7">Лаб. работа 7</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="lab-content">
+            <iframe id="lab-frame" frameborder="0"></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Портфолио студента. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Функция для получения параметров URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                lab: params.get('lab')
+            };
+        }
+
+        // Функция для загрузки лабораторной работы
+        function loadLab() {
+            const { lab } = getQueryParams();
+            const iframe = document.getElementById('lab-frame');
+            
+            if (lab) {
+                // Формируем путь к файлу лабораторной работы
+                const labPath = `Lab${lab}/index.html`;
+                
+                // Устанавливаем источник для iframe
+                iframe.src = labPath;
+                
+                // Устанавливаем размеры iframe
+                iframe.style.width = '100%';
+                iframe.style.height = '800px';
+                iframe.style.border = 'none';
+            } else {
+                // Если лабораторная работа не указана, показываем сообщение
+                iframe.srcdoc = '<div style="text-align: center; padding: 20px;"><h2>Выберите лабораторную работу из меню</h2></div>';
+            }
+        }
+
+        // Загружаем лабораторную работу при загрузке страницы
+        window.addEventListener('load', loadLab);
+    </script>
+</body>
+</html> 
