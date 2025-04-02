@@ -41,6 +41,19 @@
             };
         }
 
+        // Функция для определения имени файла лабораторной работы
+        function getLabFileName(labNumber) {
+            const labFiles = {
+                '2': 'script.php',
+                '3': 'Process.php',
+                '4': 'index.php',
+                '5': 'tux_logo.php',
+                '6': 'index.php',
+                '7': 'index.php'
+            };
+            return labFiles[labNumber] || 'index.php';
+        }
+
         // Функция для загрузки лабораторной работы
         function loadLab() {
             const { lab } = getQueryParams();
@@ -48,7 +61,7 @@
             
             if (lab) {
                 // Формируем путь к файлу лабораторной работы
-                const labPath = `Lab${lab}/index.html`;
+                const labPath = `Lab${lab}/${getLabFileName(lab)}`;
                 
                 // Устанавливаем источник для iframe
                 iframe.src = labPath;
